@@ -184,23 +184,23 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: "Hannukah Party :)",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('Dec 12, 2025 19:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('Dec 13, 2025 1:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: '230 South St, Jamaica Plain, MA 02130',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "We are in apartment 2. Let us know if you have any questions!"
         }
     });
 
@@ -214,13 +214,18 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        }
-        else {
+        // if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
+        //     && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        //     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        // }
+        // else {
+            
             // original link to script is : 'https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec'
-            $.post('https://script.google.com/macros/s/AKfycbzyo_aD4N__G0yX6r6ea1rptPj-FVPZCgi5ziZdi7F4fJrgch-tDbZFpbJQ3v6EJklJ-g/exec', data)
+            // link to the google app deployment that works with the invite code 271117:
+            // https://script.google.com/macros/s/AKfycbzObKyYT_Sf6fxEzTEOrIjmj6fIVOuP-M9m8Eh9BBPQMO0TryfIXW6QhqYsX1bJd91rGQ/exec
+            // link to the script with the invite code check removed (the one that was working before):
+            // 'https://script.google.com/macros/s/AKfycbwZYTnLjP1q-qoRbjlQLaQWqtRINNN-ceoBCf8wullGzLiKyNApnRCZWi0nqauTvgOYGA/exec'
+            $.post('https://script.google.com/macros/s/AKfycbwZYTnLjP1q-qoRbjlQLaQWqtRINNN-ceoBCf8wullGzLiKyNApnRCZWi0nqauTvgOYGA/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -234,7 +239,7 @@ $(document).ready(function () {
                     console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
                 });
-        }
+        //}
     });
 
 });
